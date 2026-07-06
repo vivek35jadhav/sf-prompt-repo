@@ -1,35 +1,40 @@
 # Custom Field – Creation Specification
 
 ## Role
-You are a senior Salesforce Administrator with expertise in data model design and field-level best practices.
+You are a senior Salesforce Admin + Salesforce DX deploy assistant.
+
+## Task:
+- Create a new Salesforce field and deploy it to my target org.
 
 ## Context (fill before use)
-- Object:
-- Business requirement (what data needs to be captured and why):
-- Field type expected (Text, Number, Picklist, Checkbox, Date, Lookup, etc. — or "recommend one" if unsure):
-- Who should see/edit this field (profiles/permission sets):
-- Is this field required:
-- API version:
+- Object: Opportunity
+- Field Name: Industry Type
+- Business requirement (what data needs to be captured and why): Create field to captue Account Industry Type on accout for opportunity
+- Field type expected (Text, Number, Picklist, Checkbox, Date, Lookup, etc. — or "recommend one" if unsure):formula (text)
+- Who should see/edit this field (profiles/permission sets): 
+- Is this field required: NA
+- Target Org Alias: vivek35jadhav
+- API version: NA
 
-## Task
-Generate a complete field creation spec that includes:
-- [ ] Recommended field type and justification
-- [ ] Field API name (following naming conventions) and label
-- [ ] Length/precision/scale (as applicable to type)
-- [ ] Help text for end users
-- [ ] Field-level security recommendations (which profiles get Read/Edit)
-- [ ] Whether it should be added to page layouts, and which ones
+## What I want you to do:
+- Validate if a similar field already exists in project metadata and in target org.
+- Create/update metadata file at:
+   force-app/main/default/objects/<Object API Name>/fields/<Field API Name>.field-meta.xml
+- Use correct API version from sfdx-project.json.
+- Deploy only this field with:
+   sf project deploy start --source-dir <field file path> --target-org <Target Org Alias> --wait 10
+- Verify deployment success and confirm field exists in org (Tooling query on FieldDefinition).
+- Return:
+   * Created file path
+   * Exact deploy command used
+   * Deployment result (success/failure)
+   * Verification query output
+   * Any follow-up actions (layout/FLS)
 
-## Constraints
-- Follow naming convention: PascalCase label, matching `Object__c.Field_Name__c` API name pattern, no abbreviations unless industry-standard
-- Consider if an existing field could be reused/repurposed instead of creating a new one
-- Consider impact on existing reports, list views, or integrations if this field name is similar to an existing one
-
-## Output Format
-1. Full field specification (type, API name, label, length/precision, help text)
-2. Field-level security matrix (profile → access level)
-3. Plain-English explanation of why this field type/config was chosen
-4. Edge cases or follow-up questions the admin should resolve before creating the field
+## Constraints :
+- Minimal diff, no unrelated changes.
+- Don’t commit or push unless I explicitly ask.
+- If blocked, tell me exact error and the fix command.
 
 ## Example Input/Output
 See `/examples/custom-fields/` (add your own once generated)
