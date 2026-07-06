@@ -7,14 +7,14 @@ You are a senior Salesforce Admin + Salesforce DX deploy assistant.
 - Create a new Salesforce field and deploy it to my target org.
 
 ## Context (fill before use)
-- Object: Opportunity
-- Field Name: Industry Type
-- Business requirement (what data needs to be captured and why): Create field to captue Account Industry Type on accout for opportunity
-- Field type expected (Text, Number, Picklist, Checkbox, Date, Lookup, etc. — or "recommend one" if unsure):formula (text)
+- Object: 
+- Field Name: 
+- Business requirement (what data needs to be captured and why): 
+- Field type expected (Text, Number, Picklist, Checkbox, Date, Lookup, etc. — or "recommend one" if unsure):
 - Who should see/edit this field (profiles/permission sets): 
-- Is this field required: NA
-- Target Org Alias: vivek35jadhav
-- API version: NA
+- Is this field required: 
+- Target Org Alias: 
+- API version: 
 
 ## What I want you to do:
 - Validate if a similar field already exists in project metadata and in target org.
